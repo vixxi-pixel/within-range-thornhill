@@ -34,12 +34,14 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center">
-              <img
-                src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/5af620fc2_image.png"
-                alt="Within Range Golf Centres"
-                className="h-16 w-auto"
-              />
+            <a href="#" className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-display text-lg font-semibold tracking-tight text-foreground">
+                WITHIN RANGE
+              </span>
+              <span className="hidden sm:inline text-xs font-mono text-muted-foreground tracking-widest uppercase">
+                Thornhill
+              </span>
             </a>
 
             {/* Desktop Links */}
