@@ -38,7 +38,7 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/5af620fc2_image.png"
                 alt="Within Range Golf Centres"
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </a>
 
