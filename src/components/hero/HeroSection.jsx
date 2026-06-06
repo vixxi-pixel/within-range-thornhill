@@ -114,7 +114,7 @@ export default function HeroSection({ heroImage }) {
                 <StatusRow
                   icon={<Clock className="w-4 h-4" />}
                   label="Status"
-                  value="Open until 11:00 PM"
+                  value="Open until 9:00 PM"
                 />
                 <StatusRow
                   icon={<Sun className="w-4 h-4" />}
