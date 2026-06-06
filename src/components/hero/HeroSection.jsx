@@ -4,7 +4,7 @@ import { MapPin, Clock, Sun, ArrowDown } from 'lucide-react';
 
 export default function HeroSection({ heroImage }) {
   return (
-    <section id="range" className="relative min-h-screen flex items-end overflow-hidden pt-32 md:pt-48">
+    <section id="range" className="relative min-h-screen flex items-end overflow-hidden pt-24 md:pt-48">
       {/* Background Image with Parallax */}
       <div className="absolute inset-0">
         <img
