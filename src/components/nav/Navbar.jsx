@@ -32,13 +32,13 @@ export default function Navbar() {
         }>
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-32">
+          <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-16' : 'h-32'}`}>
             {/* Logo */}
             <a href="#" className="flex items-center">
               <img
                 src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/3312936d2_image.png"
                 alt="Within Range Golf Centres Inc."
-                className="h-32 w-auto mt-10 ml-6 drop-shadow-[0_4px_12px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-105" />
+                className={`w-auto ml-6 drop-shadow-[0_4px_12px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all duration-500 hover:scale-105 ${scrolled ? 'h-10 mt-0' : 'h-32 mt-10'}`} />
               
             </a>
 
