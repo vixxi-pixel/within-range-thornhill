@@ -147,15 +147,29 @@ export default function Navbar() {
               </motion.a>
             </nav>
 
-            <div className="absolute bottom-12 flex flex-col items-center gap-2 text-muted-foreground text-sm">
+            <div className="absolute bottom-12 flex flex-col items-center gap-4 text-muted-foreground text-sm">
+              {/* Mobile Location Selector */}
+              <div className="flex items-center gap-2">
+                {Object.values(LOCATIONS).map((loc) => (
+                  <button
+                    key={loc.id}
+                    onClick={() => setLocationId(loc.id)}
+                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-all ${locationId === loc.id ? 'border-primary text-primary bg-primary/10' : 'border-border/50 text-muted-foreground'}`}
+                  >
+                    {loc.name}
+                  </button>
+                ))}
+              </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>8111 Leslie St, Thornhill, ON</span>
+                <span>{location.address1}, {location.address2}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>(905) 882-0320</span>
-              </div>
+              {location.phone && (
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span>{location.phone}</span>
+                </div>
+              )}
             </div>
           </motion.div>
         }
