@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, MapPin, Phone } from 'lucide-react';
+import { Menu, X, MapPin, Phone, ChevronDown } from 'lucide-react';
+import { useLocation, LOCATIONS } from '@/lib/LocationContext';
 
 const navLinks = [
 { label: 'Range', href: '#range' },
@@ -12,6 +13,8 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [locOpen, setLocOpen] = useState(false);
+  const { location, locationId, setLocationId } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -44,6 +47,38 @@ export default function Navbar() {
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-8">
+              {/* Location Selector */}
+              <div className="relative">
+                <button
+                  onClick={() => setLocOpen(!locOpen)}
+                  className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-primary" />
+                  {location.name}
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${locOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {locOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full mt-2 left-0 bg-card border border-border/50 rounded-xl overflow-hidden shadow-xl min-w-[160px] z-50"
+                    >
+                      {Object.values(LOCATIONS).map((loc) => (
+                        <button
+                          key={loc.id}
+                          onClick={() => { setLocationId(loc.id); setLocOpen(false); }}
+                          className={`w-full text-left px-4 py-3 text-sm transition-colors hover:bg-secondary ${locationId === loc.id ? 'text-primary font-semibold' : 'text-foreground'}`}
+                        >
+                          {loc.name}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               {navLinks.map((link) =>
               <a
                 key={link.label}

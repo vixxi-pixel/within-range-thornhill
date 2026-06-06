@@ -4,6 +4,7 @@ import { queryClientInstance } from '@/lib/query-client'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
+import { LocationProvider } from '@/lib/LocationContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <AuthProvider>
+      <LocationProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
           <ScrollToTop />
@@ -53,6 +55,7 @@ function App() {
         </Router>
         <Toaster />
       </QueryClientProvider>
+      </LocationProvider>
     </AuthProvider>
   )
 }

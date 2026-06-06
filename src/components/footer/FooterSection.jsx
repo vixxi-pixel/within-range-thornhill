@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Instagram, Facebook, Mail, ArrowUpRight } from 'lucide-react';
+import { useLocation } from '@/lib/LocationContext';
 
 export default function FooterSection({ mapImage }) {
+  const { location } = useLocation();
   return (
     <footer id="contact" className="relative overflow-hidden">
       {/* Map Background */}
@@ -35,7 +37,7 @@ export default function FooterSection({ mapImage }) {
             <span className="text-primary">Range.</span>
           </h2>
           <a
-            href="http://book.sweetspot.io/clubs/within-range-golf"
+            href={location.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:shadow-[0_0_30px_rgba(191,255,0,0.3)] transition-all duration-500 text-lg"
@@ -54,13 +56,13 @@ export default function FooterSection({ mapImage }) {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
                 <div>
-                  <p>8111 Leslie Street</p>
-                  <p>Thornhill, Ontario</p>
-                  <p>L3T 7P4</p>
+                  <p>{location.address1}</p>
+                  <p>{location.address2}</p>
+                  {location.postal && <p>{location.postal}</p>}
                 </div>
               </div>
               <a
-                href="https://maps.google.com/?q=8111+Leslie+Street+Thornhill+Ontario"
+                href={location.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-primary hover:underline text-sm mt-2"
@@ -89,17 +91,19 @@ export default function FooterSection({ mapImage }) {
           <div>
             <h4 className="font-display text-sm font-semibold text-foreground tracking-wider uppercase mb-4">Connect</h4>
             <div className="space-y-3 text-muted-foreground text-sm">
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:9058820320" className="hover:text-foreground transition-colors">(905) 882-0320</a>
-              </div>
+              {location.phone && (
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <a href={location.phoneHref} className="hover:text-foreground transition-colors">{location.phone}</a>
+                </div>
+              )}
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:info@withinrange.ca" className="hover:text-foreground transition-colors">info@withinrange.ca</a>
+                <a href={`mailto:${location.email}`} className="hover:text-foreground transition-colors">{location.email}</a>
               </div>
               <div className="flex items-center gap-4 mt-4">
                 <a
-                  href="https://www.instagram.com/withinrange_thornhill/"
+                  href={location.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full border border-border/50 hover:border-primary/50 hover:text-primary transition-all"
@@ -107,7 +111,7 @@ export default function FooterSection({ mapImage }) {
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://www.facebook.com/WithinRange.Thornhill"
+                  href={location.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full border border-border/50 hover:border-primary/50 hover:text-primary transition-all"
