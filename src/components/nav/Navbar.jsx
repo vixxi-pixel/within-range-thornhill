@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MapPin, Phone } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Range', href: '#range' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'Contact', href: '#contact' },
-];
+{ label: 'Range', href: '#range' },
+{ label: 'Pricing', href: '#pricing' },
+{ label: 'Technology', href: '#technology' },
+{ label: 'Contact', href: '#contact' }];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,11 +26,11 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-background/90 backdrop-blur-xl border-b border-border/50'
-            : 'bg-transparent'
-        }`}
-      >
+        scrolled ?
+        'bg-background/90 backdrop-blur-xl border-b border-border/50' :
+        'bg-transparent'}`
+        }>
+        
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -38,27 +38,27 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/3312936d2_image.png"
                 alt="Within Range Golf Centres Inc."
-                className="h-28 w-auto mb-2"
-              />
+                className="h-28 w-auto px-3 mx-1" />
+              
             </a>
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide"
-                >
+              {navLinks.map((link) =>
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide">
+                
                   {link.label}
                 </a>
-              ))}
+              )}
               <a
                 href="http://book.sweetspot.io/clubs/within-range-golf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 tracking-wide"
-              >
+                className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 tracking-wide">
+                
                 Book a Bay
               </a>
             </div>
@@ -66,8 +66,8 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 text-foreground"
-            >
+              className="md:hidden p-2 text-foreground">
+              
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -76,38 +76,38 @@ export default function Navbar() {
 
       {/* Full Screen Mobile Menu */}
       <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl flex flex-col justify-center items-center"
-          >
+        {menuOpen &&
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl flex flex-col justify-center items-center">
+          
             <nav className="flex flex-col items-center gap-8">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="text-4xl font-display font-bold text-foreground hover:text-primary transition-colors"
-                >
+              {navLinks.map((link, i) =>
+            <motion.a
+              key={link.label}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
+              className="text-4xl font-display font-bold text-foreground hover:text-primary transition-colors">
+              
                   {link.label}
                 </motion.a>
-              ))}
+            )}
               <motion.a
-                href="http://book.sweetspot.io/clubs/within-range-golf"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                className="mt-4 px-8 py-4 bg-primary text-primary-foreground text-lg font-semibold rounded-full"
-              >
+              href="http://book.sweetspot.io/clubs/within-range-golf"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="mt-4 px-8 py-4 bg-primary text-primary-foreground text-lg font-semibold rounded-full">
+              
                 Book a Bay
               </motion.a>
             </nav>
@@ -123,8 +123,8 @@ export default function Navbar() {
               </div>
             </div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </>
-  );
+    </>);
+
 }
