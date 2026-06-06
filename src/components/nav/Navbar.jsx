@@ -38,7 +38,7 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/3312936d2_image.png"
                 alt="Within Range Golf Centres Inc."
-                className="h-28 w-auto mt-10 drop-shadow-[0_4px_12px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-105" />
+                className="h-32 w-auto mt-10 ml-6 drop-shadow-[0_4px_12px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-105" />
               
             </a>
 
