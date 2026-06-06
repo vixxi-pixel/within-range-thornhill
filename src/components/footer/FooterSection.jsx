@@ -125,7 +125,7 @@ export default function FooterSection({ mapImage }) {
           <img
             src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/a489f829d_image.png"
             alt="Within Range Golf Centres Inc."
-            className="h-16 w-auto"
+            className="h-32 w-auto"
           />
         </div>
           <p className="text-xs text-muted-foreground">
