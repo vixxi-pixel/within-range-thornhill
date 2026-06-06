@@ -38,7 +38,7 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/3312936d2_image.png"
                 alt="Within Range Golf Centres Inc."
-                className="h-28 w-auto mt-6" />
+                className="h-28 w-auto mt-10" />
               
             </a>
 
