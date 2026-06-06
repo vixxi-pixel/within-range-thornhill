@@ -121,11 +121,13 @@ export default function FooterSection({ mapImage }) {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span className="font-display text-sm font-semibold text-foreground tracking-tight">WITHIN RANGE</span>
-            <span className="font-mono text-xs text-muted-foreground">THORNHILL</span>
-          </div>
+        <div className="flex items-center gap-3">
+          <img
+            src="https://media.base44.com/images/public/6a22de3ad9f241f8bbb551d5/a489f829d_image.png"
+            alt="Within Range Golf Centres Inc."
+            className="h-16 w-auto"
+          />
+        </div>
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Within Range Golf Centres Inc. All rights reserved.
           </p>
